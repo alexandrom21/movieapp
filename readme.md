@@ -51,3 +51,5 @@ dotnet ef database update
 dotnet ef migrations add ProductoMigracion --context movieappauth.Data.ApplicationDbContext -o "C:\Users\fduarte\OneDrive - Inteligo Group\Code\netcore\usmp\20241\movieappauth\Data\Migrations" 
 
 dotnet ef database update
+
+ dotnet tool install -g dotnet-aspnet-codegenerator
