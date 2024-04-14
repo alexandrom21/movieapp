@@ -30,8 +30,10 @@ dotnet ef database update
 ### modificar el login registra
 
 https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/8.0.3
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.3
 
 https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/8.0.2
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 8.0.2
 
 ## use este comando
 dotnet aspnet-codegenerator identity -dc appcomics.Data.ApplicationDbContext --files "Account.Register;Account.Login"
