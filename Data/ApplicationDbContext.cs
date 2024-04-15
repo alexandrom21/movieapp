@@ -7,6 +7,7 @@ public class ApplicationDbContext : IdentityDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
-    {
-    }
+    {}  
+    public DbSet<movieappauth.Models.Contacto> DataContacto {get;set;}
+
 }
