@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using movieappauth.Data;
+using movieappauth.Models;
 
 namespace movieappauth.Controllers
 {
@@ -20,11 +21,22 @@ namespace movieappauth.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? searchString)
         {
             var productos = from o in _context.DataProducto select o;
+            if(!String.IsNullOrEmpty(searchString)){
+                productos = productos.Where(s => s.Name.Contains(searchString));
+            }
             productos = productos.Where(l => l.Status.Contains("A"));
             return View(productos.ToList());
+        }
+
+        public async Task<IActionResult> Details(int? id){
+            Producto objProduct = await _context.DataProducto.FindAsync(id);
+            if(objProduct == null){
+                return NotFound();
+            }
+            return View(objProduct); 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
