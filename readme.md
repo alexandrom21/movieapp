@@ -43,12 +43,12 @@ dotnet aspnet-codegenerator identity -dc appcomics.Data.ApplicationDbContext --f
 
 
 ## crear la migracion "Contato"
-dotnet ef migrations add ContactoMigracion --context movieappauth.Data.ApplicationDbContext -o "C:\Users\fduarte\OneDrive - Inteligo Group\Code\netcore\usmp\20241\movieappauth\Data\Migrations" 
+dotnet ef migrations add ContactoMigracion --context movieappauth.Data.ApplicationDbContext -o "C:\Users\Alexandro\OneDrive - Universidad de San Martin de Porres\2024-1\Programacion I\movieappauth\Data\Migrations" 
 
 dotnet ef database update
 
 ## crear la migracion "Producto"
-dotnet ef migrations add ProductoMigracion --context movieappauth.Data.ApplicationDbContext -o "C:\Users\fduarte\OneDrive - Inteligo Group\Code\netcore\usmp\20241\movieappauth\Data\Migrations" 
+dotnet ef migrations add ProductoMigracion --context movieappauth.Data.ApplicationDbContext -o "C:\Users\Alexandro\OneDrive - Universidad de San Martin de Porres\2024-1\Programacion I\movieappauth\Data\Migrations" 
 
 dotnet ef database update
 
