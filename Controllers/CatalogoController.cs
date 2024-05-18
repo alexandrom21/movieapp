@@ -16,13 +16,12 @@ namespace movieappauth.Controllers
     {
         private readonly ILogger<CatalogoController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        
 
         public CatalogoController(ILogger<CatalogoController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
-            _userManager = userManager;
         }
 
         public IActionResult Index(string? searchString)
@@ -43,28 +42,7 @@ namespace movieappauth.Controllers
             return View(objProduct); 
         }
 
-        public async Task<IActionResult> Add(int? id){
-            var userID = _userManager.GetUserName(User);
-            if(userID == null){
-                ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
-                List<Producto> productos = new List<Producto>();
-                return View("Index",productos);
-            }else{
-                var producto = await _context.DataProducto.FindAsync(id);
-
-                Util.SessionExtensions.Set<Producto>(HttpContext.Session,"MiUltimoProducto",producto);
-
-                Proforma proforma = new Proforma();
-                proforma.Producto = producto;
-                proforma.Precio = producto.Price;
-                proforma.Cantidad = 1;
-                proforma.UserID = userID;
-                _context.Add(proforma);
-                await _context.SaveChangesAsync();
-                ViewData["Message"] = "Se agrego al carrito";
-                return RedirectToAction(nameof(Index));
-            }
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
