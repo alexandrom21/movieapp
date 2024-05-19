@@ -53,6 +53,11 @@ dotnet ef migrations add ProductoMigracion --context movieappauth.Data.Applicati
 ## crear la migracion "Pago, Pedido, DetallePedido"
 dotnet ef migrations add PagoPedidoMigracion --context movieappauth.Data.ApplicationDbContext -o "C:\Users\fduarte\OneDrive - Inteligo Group\Code\netcore\usmp\20241\movieappauth\Data\Migrations"
 
+## auto generacion de la parte web de producto
+dotnet aspnet-codegenerator controller -name ProductoController -m Producto -dc movieappauth.Data.ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries (si no hace el codigo poner dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.3)
+
 dotnet ef database update
 
  dotnet tool install -g dotnet-aspnet-codegenerator
+
+ 
