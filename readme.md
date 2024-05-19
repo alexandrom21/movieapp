@@ -56,6 +56,9 @@ dotnet ef migrations add PagoPedidoMigracion --context movieappauth.Data.Applica
 ## auto generacion de la parte web de producto
 dotnet aspnet-codegenerator controller -name ProductoController -m Producto -dc movieappauth.Data.ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries (si no hace el codigo poner dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.3)
 
+## instalando swagger lib
+dotnet add package Swashbuckle.AspNetCore --version 6.5.0
+
 dotnet ef database update
 
  dotnet tool install -g dotnet-aspnet-codegenerator
